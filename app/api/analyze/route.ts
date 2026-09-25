@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { analyzeWithAI } from "../../../lib/aiAnalyzer";
 import { analyze } from "../../../lib/analyzer";
 import { extractText } from "../../../lib/extract-text";
 export const runtime = "nodejs";
@@ -23,7 +24,11 @@ export async function POST(request: Request) {
     const sourceUrl = sourceType === "url" && typeof sourceUrlValue === "string" && sourceUrlValue.trim() ? sourceUrlValue.trim() : null;
     const sourceName = sourceType === "url" && typeof sourceNameValue === "string" && sourceNameValue.trim() ? sourceNameValue.trim() : null;
 
-    return NextResponse.json({ ...analyze(jobDescription, cvText, cv.name), sourceType, sourceUrl, sourceName, offerText: jobDescription });
+    const analysis = await analyzeWithAI(jobDescription, cvText, cv.name).catch((error) => {
+      console.warn("AI analysis unavailable, using deterministic analysis", error instanceof Error ? error.message : error);
+      return null;
+    });
+    return NextResponse.json({ ...(analysis ?? analyze(jobDescription, cvText, cv.name)), sourceType, sourceUrl, sourceName, offerText: jobDescription });
   } catch (error) {
     console.error("CV analysis failed", error);
     return NextResponse.json({ error: error instanceof Error && error.message ? error.message : "No pudimos leer el archivo. Verificá que sea un PDF, DOCX o TXT válido." }, { status: 422 });

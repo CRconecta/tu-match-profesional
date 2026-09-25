@@ -1,1 +1,7 @@
 node_modules
+.next
+*.tsbuildinfo
+estructura.txt
+proyecto.zip
+status_ahora.txt
+status_final.txt
