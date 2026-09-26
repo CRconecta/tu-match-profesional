@@ -43,6 +43,18 @@ OPENAI_MODEL=gpt-4o-mini
 
 No subas `.env.local` ni claves al repositorio.
 
+## Analítica anónima en Netlify
+
+La aplicación puede usar Umami Analytics sin enviar el CV ni el texto del aviso.
+Creá el sitio en Umami y configurá `NEXT_PUBLIC_UMAMI_WEBSITE_ID` con su ID en
+las variables de entorno del sitio de Netlify. Volvé a desplegar para activarlo.
+Sin esa variable, la analítica queda desactivada y la aplicación funciona igual.
+
+El tablero de Umami muestra visitantes, sesiones, páginas vistas, duración,
+dispositivos y referrers. Los eventos `match_view`, `analysis_started` y
+`analysis_completed` miden el embudo; compará visitantes únicos de `match_view`
+con visitantes únicos totales para estimar cuántos llegan al Match.
+
 ## Desplegar en Vercel
 
 1. Importá el repositorio `tu-match-profesional` en Vercel.

@@ -1,6 +1,7 @@
 "use client";
 
 import { ChangeEvent, FormEvent, useState } from "react";
+import { trackAnalyticsEvent } from "../lib/analytics";
 
 type Analysis = { score: number; summary: string; strengths: string[]; gaps: string[]; missingKeywords: string[]; relevantExperience: string[]; recommendations: string[]; highlight: string[]; cvFileName: string; sourceType?: "url" | "manual"; sourceUrl?: string | null; sourceName?: string | null; offerText?: string };
 type JobOfferPreview = { sourceType: "url"; sourceUrl: string; offerText: string; sourceName: string; title: string; company: string; location: string; modality: string; description: string; responsibilities: string; requirements: string; education: string; experience: string; skills: string; benefits: string; extractionStatus: "success" | "insufficient" | "blocked" };
@@ -57,9 +58,11 @@ export default function Home() {
         setOfferPreview(extractedOffer);
       }
       const formData = new FormData(); formData.append("jobDescription", offerText); formData.append("cv", cvFile); formData.append("sourceType", isUrlSource ? "url" : "manual"); if (isUrlSource && analysisSourceUrl) formData.append("sourceUrl", analysisSourceUrl); if (isUrlSource && analysisSourceName) formData.append("sourceName", analysisSourceName);
+      trackAnalyticsEvent("analysis_started");
       const response = await fetch("/api/analyze", { method: "POST", body: formData });
       const data = await readJsonResponse(response);
       if (!response.ok) throw new Error(typeof data.error === "string" ? data.error : "No pudimos analizar tu CV.");
+      trackAnalyticsEvent("analysis_completed");
       setAnalysis(data as unknown as Analysis);
     } catch (requestError) { setError(requestError instanceof Error ? requestError.message : "Ocurrió un error inesperado."); } finally { setIsLoading(false); }
   }
