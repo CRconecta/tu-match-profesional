@@ -1,0 +1,102 @@
+/* Generador de entrevistas — reutiliza el sistema visual de globals.css */
+.print-only { display:none; }
+.iv-box { overflow-wrap:anywhere; }
+.interview-page .hero { padding:46px 0 30px; display:block; }
+.interview-page .hero h1 em { display:block; }
+.iv-grid { display:grid; gap:18px; grid-template-columns:1fr 1fr; }
+.iv-wide, .iv-grid .form-actions { grid-column:1 / -1; }
+.iv-input { background:#fbfcfd; border:1px solid var(--line); border-radius:8px; color:var(--ink); display:block; outline:none; padding:11px 12px; width:100%; font-size:14px; }
+.iv-input:focus { border-color:var(--teal); box-shadow:0 0 0 3px #1b887f18; }
+textarea.iv-input { line-height:1.5; resize:vertical; }
+.iv-hint { background:#f1f8f6; border-left:3px solid #d5aa4d; border-radius:4px; color:var(--muted); font-size:12px; line-height:1.55; margin:14px 0 0; padding:10px 12px; }
+.iv-chips { display:flex; flex-wrap:wrap; gap:7px; margin-top:14px; }
+.iv-chips span { background:#e4f3f0; border-radius:6px; color:var(--teal); font-size:11px; font-weight:700; padding:7px 10px; }
+.iv-custom p { color:var(--muted); font-size:12px; margin:14px 0 8px; }
+.iv-checks { display:grid; gap:6px; grid-template-columns:1fr 1fr; }
+.iv-checks label { align-items:center; border:1px solid var(--line); border-radius:7px; color:var(--ink) !important; cursor:pointer; display:flex !important; font-size:12px !important; gap:7px; margin:0 !important; padding:7px 9px; }
+.iv-checks label.is-on { background:#e4f3f0; border-color:var(--teal); }
+.iv-context { display:grid; gap:14px; grid-template-columns:repeat(3,1fr); }
+.iv-context label, .iv-meta label, .iv-notes-label { color:var(--muted); display:block; font-size:12px; margin-bottom:6px; }
+.iv-span { grid-column:1 / -1; }
+.iv-guide { margin-top:50px; padding-top:34px; border-top:1px solid var(--line); }
+.iv-guide .results-header { align-items:flex-end; gap:20px; }
+.iv-actions { align-items:center; display:flex; gap:18px; }
+.iv-print { min-width:0; }
+.iv-print-brand { display:none; }
+.iv-box { background:#fff; border:1px solid var(--line); border-radius:12px; margin-bottom:18px; padding:22px 24px; }
+.iv-box strong { color:var(--navy); font:600 16px "Space Grotesk"; }
+.iv-ctx dl { display:grid; gap:12px 22px; grid-template-columns:repeat(3,1fr); margin:14px 0 0; }
+.iv-ctx dt { color:var(--teal); font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+.iv-ctx dd { color:var(--ink); font-size:13px; margin:3px 0 0; }
+.iv-meta { display:grid; gap:14px; grid-template-columns:repeat(3,1fr); margin-bottom:18px; }
+.iv-method p { color:var(--muted); font-size:13px; line-height:1.6; margin:8px 0 0; }
+.iv-star { display:flex; flex-wrap:wrap; gap:10px; margin:16px 0; }
+.iv-star span { align-items:center; background:#eef8f5; border-radius:8px; color:var(--navy); display:flex; font-size:12px; font-weight:600; gap:8px; padding:7px 12px 7px 8px; }
+.iv-star b { align-items:center; background:var(--navy); border-radius:6px; color:#f2c165; display:flex; font:700 12px "Space Grotesk"; height:24px; justify-content:center; width:24px; }
+.iv-method .iv-warning { background:#fff8e8; border-left:3px solid #d5aa4d; border-radius:4px; color:#5a4a1d; margin:0; padding:12px 14px; }
+.iv-comp { background:#fff; border:1px solid var(--line); border-radius:12px; border-top:3px solid var(--teal); box-shadow:0 6px 18px #17374b08; margin-bottom:18px; padding:24px; break-inside:avoid-page; }
+.iv-comp header { align-items:flex-start; display:flex; gap:14px; margin-bottom:18px; }
+.iv-num { background:#e4f3f0; border-radius:7px; color:var(--teal); font:700 12px "Space Grotesk"; padding:7px 8px; }
+.iv-comp h3 { color:var(--navy); font:600 20px "Space Grotesk"; margin:0 0 5px; }
+.iv-comp header p { color:var(--muted); font-size:13px; line-height:1.5; margin:0; }
+.iv-cols { display:grid; gap:24px; grid-template-columns:1fr 1fr; }
+.iv-comp h4 { color:var(--navy); font:700 11px "Space Grotesk"; letter-spacing:.08em; margin:0 0 8px; text-transform:uppercase; }
+.iv-cols > div > h4:not(:first-child) { margin-top:18px; }
+.iv-comp ol, .iv-comp ul { color:var(--ink); font-size:13px; line-height:1.5; margin:0; padding-left:19px; }
+.iv-comp li { margin-bottom:6px; }
+.iv-good li::marker { color:var(--teal); }
+.iv-bad li::marker { color:var(--orange); }
+.iv-score { align-items:center; border-top:1px solid #edf1f3; display:flex; flex-wrap:wrap; gap:12px 20px; justify-content:space-between; margin-top:18px; padding-top:16px; }
+.iv-score-label { color:var(--navy); font-size:13px; font-weight:700; }
+.iv-score-btns, .iv-decisions { display:flex; flex-wrap:wrap; gap:8px; }
+.iv-score-btns button { background:#fff; border:1px solid #c9d8dc; border-radius:8px; color:var(--navy); cursor:pointer; font:700 14px "Space Grotesk"; height:40px; width:44px; }
+.iv-score-btns button:hover, .iv-decisions button:hover { border-color:var(--teal); }
+.iv-score-btns button.is-on { background:var(--navy); border-color:var(--navy); color:#f2c165; }
+.iv-notes-label { margin-top:14px; }
+.iv-final { border-top:3px solid #d5aa4d; }
+.iv-final > div:first-child { align-items:baseline; display:flex; gap:16px; justify-content:space-between; margin-bottom:14px; }
+.iv-avg { color:var(--teal); font-size:13px; font-weight:700; }
+.iv-decisions button { background:#fff; border:1px solid #c9d8dc; border-radius:8px; color:var(--navy); cursor:pointer; font-size:13px; font-weight:700; padding:11px 16px; }
+.iv-decisions button.is-on.d-ok { background:#1b887f; border-color:#1b887f; color:#fff; }
+.iv-decisions button.is-on.d-mid { background:#d5aa4d; border-color:#d5aa4d; color:#092b40; }
+.iv-decisions button.is-on.d-no { background:#b14e3b; border-color:#b14e3b; color:#fff; }
+.iv-print-row { align-items:center; display:flex; gap:14px; margin:6px 0 10px; }
+.iv-print-row span { color:#7b8c99; font-size:12px; }
+.iv-back { color:var(--teal); display:inline-block; font-size:13px; font-weight:700; margin-bottom:16px; text-decoration:none; }
+.iv-back:hover { text-decoration:underline; }
+.nav-soon { color:#7f98a5; font-size:11px; }
+.main-nav a:focus-visible, .iv-back:focus-visible, .iv-score-btns button:focus-visible, .iv-decisions button:focus-visible, .primary-button:focus-visible, .whatsapp-button:focus-visible { outline:3px solid #d5aa4d; outline-offset:2px; }
+.iv-summary { border-top:1px solid #edf1f3; margin-top:18px; padding-top:16px; }
+.iv-summary table { border-collapse:collapse; font-size:13px; margin:10px 0; width:100%; }
+.iv-summary th, .iv-summary td { border-bottom:1px solid #edf1f3; padding:7px 4px; text-align:left; }
+.iv-summary th { color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:.06em; }
+.iv-summary p { color:var(--ink); font-size:14px; margin:8px 0 0; }
+.iv-cta { margin-top:44px; }
+@media (max-width:720px) {
+  .iv-grid, .iv-cols, .iv-context, .iv-meta, .iv-ctx dl { grid-template-columns:1fr; }
+  .iv-checks { grid-template-columns:1fr; }
+  .iv-guide .results-header { align-items:stretch; flex-direction:column; }
+  .iv-actions { justify-content:space-between; }
+  .iv-print-row { align-items:stretch; flex-direction:column; }
+  .iv-comp { padding:19px 16px; }
+  .iv-score { align-items:flex-start; flex-direction:column; }
+}
+@media print {
+  @page { margin:14mm; }
+  body { background:#fff !important; }
+  .no-print { display:none !important; }
+  .print-only { display:block !important; }
+  .iv-input { display:none !important; }
+  .iv-meta .print-only { border-bottom:1px solid #999; min-height:20px; font-size:13px; }
+  .shell { width:100% !important; }
+  .iv-guide { border:0; margin:0; padding:0; }
+  .iv-print-brand { align-items:center; border-bottom:2px solid #092b40; display:flex; gap:12px; margin-bottom:16px; padding-bottom:12px; }
+  .iv-print-brand img { background:#e6bd63; border-radius:8px; height:42px; padding:4px; width:42px; }
+  .iv-print-brand strong { color:#092b40; display:block; font:600 15px "Space Grotesk"; }
+  .iv-print-brand span { color:#555; font-size:11px; }
+  .iv-box, .iv-comp { box-shadow:none; }
+  .iv-comp { break-inside:avoid; page-break-inside:avoid; }
+  .iv-notes-print { border:1px solid #999; border-radius:4px; font-size:12px; min-height:70px; padding:8px; white-space:pre-wrap; }
+  .iv-score-btns button { height:30px; width:34px; }
+  * { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+}

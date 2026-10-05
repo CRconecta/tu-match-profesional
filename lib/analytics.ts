@@ -1,4 +1,4 @@
-type AnalyticsEvent = "match_view" | "analysis_started" | "analysis_completed";
+export type AnalyticsEvent = "match_view" | "analysis_started" | "analysis_completed" | "tool_open_entrevista" | "interview_generated" | "whatsapp_click_entrevista";
 
 declare global {
   interface Window {
