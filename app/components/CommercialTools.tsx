@@ -12,15 +12,15 @@ const navigation = [
 const services = [
   {
     label: "Revisión profesional de CV",
-    message: "Hola, quisiera consultar por el servicio pago de revisión de CV.",
+    message: "Hola, quisiera consultar por el servicio de revisión de CV.",
   },
   {
     label: "Preparación individual de entrevistas",
-    message: "Hola, quisiera consultar por el servicio pago de preparación individual de entrevistas.",
+    message: "Hola, quisiera consultar por el servicio de preparación individual de entrevistas.",
   },
   {
     label: "Asesoramiento laboral",
-    message: "Hola, quisiera consultar por el servicio pago de asesoramiento laboral.",
+    message: "Hola, quisiera consultar por el servicio de asesoramiento laboral.",
   },
 ];
 
