@@ -5,7 +5,7 @@ import "./globals.css";
 const umamiWebsiteId = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID;
 
 export const metadata: Metadata = {
-  title: "CR Gestión con Resultados | Tu Match Profesional",
+  title: "Tu Match Profesional | Una iniciativa de CR Gestión con Resultados",
   description: "Compará tu CV con una oportunidad laboral y recibí un diagnóstico claro antes de postularte.",
 };
 

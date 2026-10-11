@@ -4,7 +4,7 @@ const WHATSAPP_BASE = "https://wa.me/5491124895402";
 
 const navigation = [
   { href: "/", label: "Inicio" },
-  { href: "/preparar-entrevista", label: "Preparar entrevista" },
+  { href: "/preparar-entrevista", label: "Prepará tu entrevista" },
   { href: "/salario", label: "Salario" },
   { href: "/recursos", label: "Recursos" },
 ];
@@ -28,9 +28,9 @@ export function CommercialHeader({ current }: { current?: string }) {
   return (
     <header className={styles.header}>
       <div className={`shell ${styles.headerInner}`}>
-        <a className={styles.brand} href="/" aria-label="CR Gestión con Resultados, Tu Match Profesional">
+        <a className={styles.brand} href="/" aria-label="Tu Match Profesional — Una iniciativa de CR Gestión con Resultados">
           <img src="/branding/logo-consultora.png" alt="CR Gestión con Resultados" />
-          <span><strong>CR Gestión con Resultados</strong><small>Tu Match Profesional</small></span>
+          <span><strong>Tu Match Profesional</strong><small>Una iniciativa de CR Gestión con Resultados</small></span>
         </a>
         <nav className={styles.navigation} aria-label="Navegación principal">
           {navigation.map((item) => (
@@ -73,7 +73,7 @@ export function CommercialFooter() {
   return (
     <footer className={styles.footer}>
       <div className={`shell ${styles.footerInner}`}>
-        <span>© CR Gestión con Resultados · Tu Match Profesional</span>
+        <span>Tu Match Profesional — Una iniciativa de CR Gestión con Resultados</span>
         <a href="/">Volver a Tu Match Profesional</a>
       </div>
     </footer>

@@ -15,6 +15,24 @@ const starFields: { id: StarField; label: string; hint: string }[] = [
   { id: "result", label: "R · Resultado", hint: "¿Qué cambió? ¿Qué aprendiste?" },
 ];
 
+const starFeedback: Record<StarField, string> = {
+  situation: "Ubicá el ejemplo: cuándo ocurrió, en qué contexto y cuál era el desafío.",
+  task: "Aclarà cuál era tu responsabilidad y qué objetivo había que cumplir.",
+  action: "Contá tus pasos y decisiones concretas; diferenciá tu aporte del del equipo.",
+  result: "Cerrá con un efecto observable o un aprendizaje. Incluí cifras solo si las recordás y podés sostenerlas.",
+};
+
+function getStarFeedback(field: StarField, answer: string) {
+  const words = answer.trim().split(/\s+/).filter(Boolean).length;
+  if (words === 0) return `Todavía no escribiste esta parte. ${starFeedback[field]}`;
+  if (words < 10) return `La respuesta es muy breve para ubicar el ejemplo. ${starFeedback[field]}`;
+  if (words > 100) return `Podés resumirla para destacar lo principal. ${starFeedback[field]}`;
+  if (field === "result" && /\d/.test(answer)) {
+    return "Incluiste una cifra; agregá qué representa y cómo la obtuviste para dar contexto.";
+  }
+  return starFeedback[field];
+}
+
 export default function InterviewPractice() {
   const [roleId, setRoleId] = useState("");
   const [seniorityId, setSeniorityId] = useState("");
@@ -79,7 +97,7 @@ export default function InterviewPractice() {
               </div>
               <div className={styles.noPrint}>
                 <button className={styles.button} type="button" onClick={() => window.print()}>Imprimir / Guardar PDF</button>
-                <p className={styles.resultIntro}>En el diálogo de impresión elegí “Guardar como PDF”. Tus respuestas quedan en este navegador y no se envían ni guardan en un servidor.</p>
+                <p className={styles.resultIntro}>En el diálogo de impresión elegí “Guardar como PDF”. Tus respuestas permanecen en esta página; no se envían ni guardan en un servidor.</p>
               </div>
               <h2>{role.name} · {seniority.name}</h2>
               <p className={styles.resultIntro}>Estas preguntas son orientativas, no predicciones exactas. Enfocate en describir tu aporte real; no hace falta que el resultado haya sido perfecto.</p>
@@ -94,16 +112,22 @@ export default function InterviewPractice() {
                   <div className={styles.starGrid}>
                     {starFields.map((field) => {
                       const id = `star-${role.id}-${questionIndex}-${field.id}`;
+                      const answer = answers[`${role.id}-${questionIndex}`]?.[field.id] ?? "";
                       return (
                         <div className={styles.starField} key={field.id}>
                           <label htmlFor={id}>{field.label} · {field.hint}</label>
-                          <textarea id={id} rows={3} value={answers[`${role.id}-${questionIndex}`]?.[field.id] ?? ""} onChange={(event) => updateAnswer(questionIndex, field.id, event.target.value)} />
+                          <textarea id={id} rows={3} value={answer} onChange={(event) => updateAnswer(questionIndex, field.id, event.target.value)} />
+                          <p className={styles.hint}>Sugerencia para mejorar: {getStarFeedback(field.id, answer)}</p>
                         </div>
                       );
                     })}
                   </div>
                 </article>
               ))}
+              <p className={styles.hint}>
+                La devolución es una guía automática de estructura STAR, no una evaluación profesional
+                de la veracidad, calidad o adecuación de tus respuestas.
+              </p>
               <div className={`${styles.noPrint} ${styles.actions}`}>
                 <button className={styles.button} type="button" onClick={() => window.print()}>Imprimir / Guardar PDF</button>
                 <a className={styles.subtleLink} href="/recursos#preparar-entrevista">Ver guía breve para preparar entrevistas →</a>
