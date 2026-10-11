@@ -28,6 +28,12 @@ permanente, usá el despliegue de Vercel que se describe abajo.
 - Extracción de texto y diagnóstico determinístico de coincidencias.
 - Análisis semántico opcional mediante OpenAI.
 - Brechas, evidencia encontrada y recomendaciones concretas.
+- `/preparar-entrevista`: preguntas orientativas por puesto, competencias, evidencia, repreguntas y práctica STAR imprimible.
+- `/salario`: comparación transparente entre remuneración actual, objetivo porcentual, piso personal y oferta; no estima salarios de mercado.
+- `/recursos`: guías breves de empleabilidad con enlaces a las herramientas.
+- `/entrevista`: generador B2B de guías estructuradas para entrevistadores; conserva su uso y funcionamiento.
+
+Las herramientas complementarias no requieren registro ni envían las respuestas o los importes a un servidor. La preparación de entrevistas puede imprimirse o guardarse como PDF desde el navegador.
 
 ## Variables de entorno opcionales
 
