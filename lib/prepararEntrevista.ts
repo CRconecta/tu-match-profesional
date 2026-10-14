@@ -183,3 +183,22 @@ export const SENIORITY_LEVELS = [
   { id: "avanzado", name: "Avanzado", focus: "Detallá tu criterio para decidir, cómo anticipaste riesgos y qué impacto o aprendizaje dejó la experiencia." },
   { id: "liderazgo", name: "Liderazgo / coordinación", focus: "Sumá cómo alineaste al equipo, distribuiste responsabilidades y diste seguimiento a resultados y aprendizajes." },
 ] as const;
+
+// Fuentes de ejemplos para personas con poca o ninguna experiencia laboral.
+// Son sugerencias para recordar situaciones reales: no se deben inventar ni adornar.
+export const EXPERIENCE_SOURCES = [
+  { id: "estudios", name: "Estudios y proyectos académicos", prompt: "Un trabajo grupal, una investigación, una exposición o un examen final que tuviste que preparar. ¿Qué parte te tocó y cómo la resolviste?" },
+  { id: "voluntariado", name: "Voluntariado y actividades comunitarias", prompt: "Una colecta, un evento, una tarea en una organización o en tu barrio. ¿Qué responsabilidad asumiste y qué lograron?" },
+  { id: "extracurricular", name: "Actividades extracurriculares", prompt: "Un deporte, un club, un curso, un taller o un centro de estudiantes. ¿Cómo te organizaste y cómo trabajaste con otras personas?" },
+  { id: "hobbies", name: "Hobbies y proyectos personales", prompt: "Algo que aprendiste por tu cuenta o armaste vos: un emprendimiento chico, un canal, una colección, un instrumento. ¿Qué dificultades tuviste y cómo las superaste?" },
+  { id: "personales", name: "Situaciones personales o familiares", prompt: "Organizar un evento, cuidar a alguien, resolver un imprevisto en casa. Elegí solo lo que quieras compartir y que muestre cómo respondés ante un desafío." },
+] as const;
+
+// Criterios SMART para formular objetivos o resultados concretos.
+export const SMART_FIELDS = [
+  { id: "specific", letter: "S", name: "Específico", hint: "¿Qué querés lograr, exactamente?" },
+  { id: "measurable", letter: "M", name: "Medible", hint: "¿Cómo vas a saber que lo lograste? Usá un dato que puedas verificar." },
+  { id: "achievable", letter: "A", name: "Alcanzable", hint: "¿Qué recursos, tiempo y conocimientos tenés o necesitás?" },
+  { id: "relevant", letter: "R", name: "Relevante", hint: "¿Por qué importa para el puesto o para tu desarrollo?" },
+  { id: "timebound", letter: "T", name: "Temporal", hint: "¿En qué plazo lo vas a hacer?" },
+] as const;

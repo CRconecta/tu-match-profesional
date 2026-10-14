@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { trackAnalyticsEvent } from "../../lib/analytics";
 import {
   COMPETENCIES, COMPETENCY_ORDER, DECISIONS, LEVELS, POSITIONS, SCORE_LABELS,
@@ -27,6 +27,9 @@ export default function EntrevistaTool() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => { trackAnalyticsEvent("tool_open_entrevista"); }, []);
+  // Inicio de interacción: se cuenta una vez por visita y sin enviar qué puesto o nivel se eligió.
+  const started = useRef(false);
+  function markStarted() { if (!started.current) { started.current = true; trackAnalyticsEvent("interview_started"); } }
 
   const position = POSITIONS.find((p) => p.id === positionId);
   const isOther = positionId === "otro";
@@ -64,13 +67,13 @@ export default function EntrevistaTool() {
         <div className="iv-grid">
           <div className="panel"><div className="panel-heading"><div><span className="step">01</span><div><h2>Puesto</h2><small>Define las competencias a evaluar</small></div></div><span className="required">Obligatorio</span></div>
             <label htmlFor="puesto">Elegí un puesto</label>
-            <select id="puesto" className="iv-input" value={positionId} onChange={(e) => { setPositionId(e.target.value); setError(""); }}><option value="">Seleccionar…</option>{POSITIONS.map((p) => <option key={p.id} value={p.id}>{p.name}</option>)}</select>
+            <select id="puesto" className="iv-input" value={positionId} onChange={(e) => { markStarted(); setPositionId(e.target.value); setError(""); }}><option value="">Seleccionar…</option>{POSITIONS.map((p) => <option key={p.id} value={p.id}>{p.name}</option>)}</select>
             {position && !isOther && <div className="iv-chips" aria-label="Competencias del puesto">{position.competencies.map((c) => <span key={c}>{COMPETENCIES[c].name}</span>)}</div>}
             {isOther && <div className="iv-custom"><p>Elegí entre 2 y 4 competencias ({custom.length}/4):</p><div className="iv-checks">{COMPETENCY_ORDER.map((c) => <label key={c} className={custom.includes(c) ? "is-on" : ""}><input type="checkbox" checked={custom.includes(c)} onChange={() => toggleCustom(c)} disabled={!custom.includes(c) && custom.length >= 4} />{COMPETENCIES[c].name}</label>)}</div></div>}
           </div>
           <div className="panel"><div className="panel-heading"><div><span className="step">02</span><div><h2>Nivel</h2><small>Ajusta el foco de la entrevista</small></div></div><span className="required">Obligatorio</span></div>
             <label htmlFor="nivel">Elegí el nivel</label>
-            <select id="nivel" className="iv-input" value={levelId} onChange={(e) => { setLevelId(e.target.value); setError(""); }}><option value="">Seleccionar…</option>{LEVELS.map((l) => <option key={l.id} value={l.id}>{l.name}</option>)}</select>
+            <select id="nivel" className="iv-input" value={levelId} onChange={(e) => { markStarted(); setLevelId(e.target.value); setError(""); }}><option value="">Seleccionar…</option>{LEVELS.map((l) => <option key={l.id} value={l.id}>{l.name}</option>)}</select>
             {levelId && <p className="iv-hint">{LEVELS.find((l) => l.id === levelId)?.focus}</p>}
           </div>
           <div className="panel iv-wide"><div className="panel-heading"><div><span className="step">03</span><div><h2>Contexto</h2><small>Opcional · agregá información sobre la posición, industria, turnos, equipo o responsabilidades específicas</small></div></div><span className="required">Opcional</span></div>

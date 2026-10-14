@@ -6,6 +6,7 @@ const navigation = [
   { href: "/", label: "Inicio" },
   { href: "/preparar-entrevista", label: "Prepará tu entrevista" },
   { href: "/salario", label: "Salario" },
+  { href: "/radar-salarial", label: "Radar salarial" },
   { href: "/recursos", label: "Recursos" },
 ];
 
@@ -56,7 +57,7 @@ export function CommercialCta() {
       <div>
         <div className="eyebrow">ACOMPAÑAMIENTO PROFESIONAL</div>
         <h2>Si necesitás un apoyo personalizado</h2>
-        <p>Tu Match Profesional es una iniciativa de CR Gestión con Resultados. Consultá por estos servicios pagos, sin compromiso.</p>
+        <p>Tu Match Profesional es una iniciativa de CR Gestión con Resultados. Consultá por estos servicios profesionales, sin compromiso.</p>
       </div>
       <ul>
         {services.map((service) => (

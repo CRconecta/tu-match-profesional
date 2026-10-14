@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { CommercialCta, CommercialFooter, CommercialHeader } from "../components/CommercialTools";
 import styles from "../commercialTools.module.css";
-import { INTERVIEW_ROLES, SENIORITY_LEVELS } from "../../lib/prepararEntrevista";
+import { EXPERIENCE_SOURCES, INTERVIEW_ROLES, SENIORITY_LEVELS, SMART_FIELDS } from "../../lib/prepararEntrevista";
 
 type StarField = "situation" | "task" | "action" | "result";
 type Answers = Record<string, Partial<Record<StarField, string>>>;
@@ -31,6 +31,49 @@ function getStarFeedback(field: StarField, answer: string) {
     return "Incluiste una cifra; agregá qué representa y cómo la obtuviste para dar contexto.";
   }
   return starFeedback[field];
+}
+
+type SmartField = (typeof SMART_FIELDS)[number]["id"];
+
+function smartFeedback(answer: string) {
+  const words = answer.trim().split(/\s+/).filter(Boolean).length;
+  if (words === 0) return "Todavía no completaste este criterio.";
+  if (words < 4) return "Es muy breve: sumá un detalle concreto.";
+  return "Revisá que sea algo que puedas sostener con hechos.";
+}
+
+function SmartPractice() {
+  // Lo que escribís queda solo en esta página: no se guarda ni se envía.
+  const [goal, setGoal] = useState<Partial<Record<SmartField, string>>>({});
+  return (
+    <section className={styles.card} aria-labelledby="smart-title">
+      <h2 id="smart-title">Formulá un objetivo concreto con SMART</h2>
+      <p className={styles.resultIntro}>STAR te sirve para contar experiencias que ya viviste. SMART te sirve cuando te preguntan por tus objetivos o por cómo vas a aprender algo: te ayuda a decir algo concreto en lugar de una frase general como “quiero crecer”. Completá un objetivo real que tengas.</p>
+      <div className={styles.starGrid}>
+        {SMART_FIELDS.map((field) => (
+          <div className={styles.starField} key={field.id}>
+            <label htmlFor={`smart-${field.id}`}>{field.letter} · {field.name} · {field.hint}</label>
+            <textarea id={`smart-${field.id}`} rows={2} value={goal[field.id] ?? ""} onChange={(event) => setGoal((previous) => ({ ...previous, [field.id]: event.target.value }))} />
+            <p className={styles.hint}>Sugerencia para mejorar: {smartFeedback(goal[field.id] ?? "")}</p>
+          </div>
+        ))}
+      </div>
+      <p className={styles.hint}>Ejemplo orientativo: “En los próximos 3 meses quiero terminar un curso de Excel básico (específico), rindiendo las 4 evaluaciones (medible), con 5 horas por semana (alcanzable), para ordenar datos en un puesto administrativo (relevante), antes de fin de año (temporal)”. Es solo un modelo: usá tus propios datos.</p>
+    </section>
+  );
+}
+
+function NoExperience() {
+  return (
+    <section className={styles.card} aria-labelledby="noexp-title">
+      <h2 id="noexp-title">¿Todavía no tenés experiencia laboral?</h2>
+      <p className={styles.resultIntro}>Podés usar el método STAR con situaciones reales de otros ámbitos. A un entrevistador le sirve ver cómo pensás, cómo te organizás y cómo aprendés. Elegí ejemplos verdaderos: no hace falta que sean grandes ni inventar nada.</p>
+      <ul className={styles.followUps}>
+        {EXPERIENCE_SOURCES.map((source) => <li key={source.id}><strong>{source.name}:</strong> {source.prompt}</li>)}
+      </ul>
+      <p className={styles.hint}>Después de elegir una situación, elegí cualquier puesto y nivel “Inicial” y respondé las preguntas con ese ejemplo.</p>
+    </section>
+  );
 }
 
 export default function InterviewPractice() {
@@ -84,6 +127,9 @@ export default function InterviewPractice() {
             </div>
             <p className={styles.hint}>Los nombres de seniority varían entre organizaciones. Usá el nivel como una referencia para ajustar el alcance de tus ejemplos, no como una regla por años de experiencia.</p>
           </section>
+
+          <NoExperience />
+          <SmartPractice />
 
           {role && seniority && (
             <section className={styles.results} aria-live="polite">
