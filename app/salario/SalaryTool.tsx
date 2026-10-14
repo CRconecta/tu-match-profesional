@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { trackAnalyticsEvent, trackAnalyticsEventOnce } from "../../lib/analytics";
 import { CommercialCta, CommercialFooter, CommercialHeader } from "../components/CommercialTools";
 import styles from "../commercialTools.module.css";
+import NetToGross from "./NetToGross";
 import OfferComparison from "./OfferComparison";
 
 const officialSources = [
@@ -230,6 +231,8 @@ export default function SalaryTool() {
             </div>
           </section>
 
+          <NetToGross />
+
           <OfferComparison />
 
           <section className={styles.card} aria-labelledby="income-tax-title">
@@ -254,6 +257,7 @@ export default function SalaryTool() {
 
           <section className={styles.card} aria-labelledby="market-salaries-title">
             <h2 id="market-salaries-title">Salarios de mercado</h2>
+            <p className={styles.hint}>Para consultar la referencia de un puesto, entrá al <a href="/radar-salarial">Radar salarial</a>.</p>
             <p className={styles.resultIntro}>
               Las referencias por puesto requieren una banda salarial publicada que permita verificar
               cargo, período, moneda y si el valor es bruto o neto. Las páginas públicas consultadas

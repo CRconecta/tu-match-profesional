@@ -3,6 +3,7 @@ export type AnalyticsEvent =
   | "match_view" | "analysis_started" | "analysis_completed"
   | "tool_open_entrevista" | "interview_started" | "interview_generated" | "whatsapp_click_entrevista"
   | "tool_open_salario" | "salary_started" | "salary_result_generated"
+  | "tool_open_radar" | "radar_search"
   | "tool_open_ninebox" | "ninebox_started" | "ninebox_result_generated"
   | "whatsapp_click";
 
