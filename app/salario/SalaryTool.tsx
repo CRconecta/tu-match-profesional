@@ -1,8 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { trackAnalyticsEvent, trackAnalyticsEventOnce } from "../../lib/analytics";
 import { CommercialCta, CommercialFooter, CommercialHeader } from "../components/CommercialTools";
 import styles from "../commercialTools.module.css";
+import OfferComparison from "./OfferComparison";
 
 const officialSources = [
   {
@@ -63,6 +65,14 @@ const sourcesVerifiedAt = "10 de octubre de 2026";
 export default function SalaryTool() {
   const [grossInput, setGrossInput] = useState("");
   const [payType, setPayType] = useState("habitual");
+  useEffect(() => { trackAnalyticsEvent("tool_open_salario"); }, []);
+  // Solo se envía el nombre del evento: el importe ingresado nunca llega a la analítica.
+  function handleGrossChange(value: string) {
+    trackAnalyticsEventOnce("salary_started");
+    const parsed = Number(value);
+    if (value.trim() !== "" && Number.isFinite(parsed) && parsed >= 0) trackAnalyticsEventOnce("salary_result_generated");
+    setGrossInput(value);
+  }
   const grossSalary = Number(grossInput);
   const hasValidAmount =
     grossInput !== "" && Number.isFinite(grossSalary) && grossSalary >= 0;
@@ -112,7 +122,7 @@ export default function SalaryTool() {
                   step="0.01"
                   placeholder="Ej.: 1000000"
                   value={grossInput}
-                  onChange={(event) => setGrossInput(event.target.value)}
+                  onChange={(event) => handleGrossChange(event.target.value)}
                   aria-describedby="gross-salary-help"
                   aria-invalid={grossInput !== "" && !hasValidAmount}
                 />
@@ -219,6 +229,8 @@ export default function SalaryTool() {
               </ul>
             </div>
           </section>
+
+          <OfferComparison />
 
           <section className={styles.card} aria-labelledby="income-tax-title">
             <h2 id="income-tax-title">¿Cuánto me pueden descontar de Ganancias?</h2>
