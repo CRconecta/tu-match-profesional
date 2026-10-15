@@ -5,7 +5,6 @@ import { trackAnalyticsEvent, trackAnalyticsEventOnce } from "../../lib/analytic
 import { CommercialCta, CommercialFooter, CommercialHeader } from "../components/CommercialTools";
 import styles from "../commercialTools.module.css";
 import NetToGross from "./NetToGross";
-import OfferComparison from "./OfferComparison";
 
 const officialSources = [
   {
@@ -233,8 +232,6 @@ export default function SalaryTool() {
 
           <NetToGross />
 
-          <OfferComparison />
-
           <section className={styles.card} aria-labelledby="income-tax-title">
             <h2 id="income-tax-title">¿Cuánto me pueden descontar de Ganancias?</h2>
             <p className={styles.hint}>
@@ -338,15 +335,6 @@ export default function SalaryTool() {
                 <a href={sources.randstadProjection.url} target="_blank" rel="noopener noreferrer">
                   Leer el informe de {sources.randstadProjection.publisher} ↗
                 </a>
-              </article>
-              <article className={styles.guideCard}>
-                <span className={styles.tag}>Pretensiones de candidatos</span>
-                <h3>Sin rangos verificables por puesto</h3>
-                <p>
-                  Las fuentes citadas no publican en sus páginas abiertas una pretensión salarial
-                  individual por cargo con importe, moneda, período y criterio bruto/neto. No debe
-                  confundirse la proyección empresarial anterior con lo que piden los candidatos.
-                </p>
               </article>
             </div>
           </section>

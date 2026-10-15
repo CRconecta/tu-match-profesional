@@ -34,7 +34,7 @@ const guides = [
     title: "Conversar sobre salario",
     copy: "Antes de responder, definí qué remuneración buscás, cuál es tu piso personal y qué condiciones necesitás aclarar. Confirmá si los importes son netos o brutos, su período y qué componentes incluye la propuesta. Compará esos datos con tus prioridades, sin basarte en cifras que no verificaste.",
     href: "/salario",
-    link: "Calcular tu objetivo y comparar una oferta",
+    link: "Estimar tu sueldo neto a partir del bruto",
   },
   {
     id: "periodos-sin-empleo",
