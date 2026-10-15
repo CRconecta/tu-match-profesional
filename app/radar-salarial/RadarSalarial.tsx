@@ -55,19 +55,21 @@ export default function RadarSalarial({ data = RADAR_DATA }: { data?: RadarEntry
             <section aria-live="polite" data-testid="radar-results">
               <h2>{position.name}</h2>
               {entries.map((entry) => (
-                <article className={styles.card} key={`${entry.sourceUrl}-${entry.zone}-${entry.referenceDate}`}>
+                <article className={styles.card} key={`${entry.sourceUrl}-${entry.sourceName}-${entry.sourceLabel}-${entry.max}`}>
                   <span className={styles.tag}>Confianza {entry.confidence}</span>
                   <div className={styles.metricGrid}>
-                    <div className={styles.metric}><span>Valor de referencia ({entry.referenceKind})</span><strong>{money(entry.reference)}</strong></div>
-                    <div className={styles.metric}><span>Rango publicado</span><strong>{money(entry.min)} a {money(entry.max)}</strong></div>
+                    {entry.reference !== undefined && entry.min !== entry.max && <div className={styles.metric}><span>Valor de referencia ({entry.referenceKind})</span><strong>{money(entry.reference)}</strong></div>}
+                    <div className={styles.metric}><span>{entry.min === entry.max ? `Valor publicado (${entry.referenceKind})` : "Rango publicado"}</span><strong>{entry.min === entry.max ? money(entry.min) : `${money(entry.min)} a ${money(entry.max)}`}</strong></div>
                     <div className={styles.metric}><span>Tipo y período</span><strong>{entry.amountType === "bruto" ? "Bruto" : "Neto"} · {entry.period}</strong></div>
                   </div>
+                  {entry.sourceLabel && <p><strong>Puesto según la fuente:</strong> {entry.sourceLabel}.</p>}
                   <p><strong>Zona:</strong> {entry.zone}. <strong>Experiencia:</strong> {entry.experience}. <strong>Jornada y modalidad:</strong> {entry.workload}.</p>
-                  <p><strong>Fecha del dato:</strong> {dateText(entry.referenceDate)}. {entry.sampleSize ? <><strong>Muestra:</strong> {entry.sampleSize} casos. </> : "La fuente no informa el tamaño de la muestra. "}</p>
+                  <p><strong>Fecha de la publicación:</strong> {dateText(entry.referenceDate)}. {entry.sampleSize ? <><strong>Muestra:</strong> {entry.sampleSize} casos. </> : "La fuente no informa el tamaño de la muestra. "}</p>
+                  {entry.note && <p><strong>Aclaración de la fuente:</strong> {entry.note}</p>}
                   <p><strong>Fuente:</strong> <a href={entry.sourceUrl} target="_blank" rel="noopener noreferrer">{entry.sourceName} ↗</a></p>
                 </article>
               ))}
-              <p className={styles.hint}>Son referencias orientativas de una fuente puntual y de una fecha determinada. No constituyen una oferta, un piso ni una garantía de lo que pague una empresa en particular.</p>
+              <p className={styles.hint}>Son referencias orientativas que medios reconocidos publicaron citando estudios salariales; no accedimos a los informes completos. La confianza indica si la fuente informa método y muestra: la mayoría no lo hace. Los importes se expresan con el símbolo $, que interpretamos como pesos argentinos. No constituyen una oferta, un piso ni una garantía de lo que pague una empresa en particular.</p>
             </section>
           )}
 

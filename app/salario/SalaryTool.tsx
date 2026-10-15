@@ -256,10 +256,9 @@ export default function SalaryTool() {
             <h2 id="market-salaries-title">Salarios de mercado</h2>
             <p className={styles.hint}>Para consultar la referencia de un puesto, entrá al <a href="/radar-salarial">Radar salarial</a>.</p>
             <p className={styles.resultIntro}>
-              Las referencias por puesto requieren una banda salarial publicada que permita verificar
-              cargo, período, moneda y si el valor es bruto o neto. Las páginas públicas consultadas
-              describen informes 2026, pero no exponen esas tablas.
-            </p>
+              Las guías completas de Michael Page y Randstad se descargan con un formulario y sus tablas no
+              son públicas. En el Radar salarial mostramos los rangos por puesto que medios reconocidos
+              publicaron citando esos estudios, cada uno con su fuente y su fecha.</p>
             <div className={styles.guideGrid}>
               <article className={styles.guideCard}>
                 <span className={styles.tag}>Argentina · 2026</span>
@@ -267,8 +266,7 @@ export default function SalaryTool() {
                 <p><strong>Fuente:</strong> {sources.michaelPage.publisher}. <strong>Fecha:</strong> {sources.michaelPage.publicationDate}. <strong>Enlace verificado:</strong> {sourcesVerifiedAt}.</p>
                 <p>
                   La página de acceso invita a descargar la guía, pero no publica allí rangos por
-                  puesto. Por eso no mostramos cifras ni inferimos moneda, periodicidad o criterio
-                  bruto/neto.
+                  puesto. Los importes que mostramos en el Radar vienen de notas que citan esta guía.
                 </p>
                 <a href={sources.michaelPage.url} target="_blank" rel="noopener noreferrer">
                   Consultar la guía de {sources.michaelPage.publisher} ↗
@@ -289,10 +287,9 @@ export default function SalaryTool() {
               </article>
             </div>
             <p className={styles.hint}>
-              <strong>Rangos por puesto disponibles en esta herramienta: ninguno.</strong> No
-              publicamos valores de esas guías sin acceso verificable a las tablas completas y a sus
-              definiciones.
-            </p>
+              <strong>Rangos por puesto:</strong> consultalos en el <a href="/radar-salarial">Radar salarial</a>.
+              Son referencias de notas periodísticas, no de los informes completos, y cada una indica
+              su fuente, su fecha y sus límites.</p>
           </section>
 
           <section className={styles.card} aria-labelledby="expectations-title">
