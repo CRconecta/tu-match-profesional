@@ -134,7 +134,7 @@ export default function InterviewPractice() {
           {role && seniority && (
             <section className={styles.results} aria-live="polite">
               <div className={styles.printBrand}>
-                <img src="/branding/logo-consultora.png" alt="" />
+                <img src="/branding/logo-cr-gestion.png" alt="" />
                 <div><strong>CR Gestión con Resultados</strong><span>Tu Match Profesional · Preparación de entrevista</span></div>
               </div>
               <div className={`${styles.card} ${styles.noPrint}`}>

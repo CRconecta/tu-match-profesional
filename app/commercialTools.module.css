@@ -24,12 +24,10 @@
 }
 
 .brand img {
-  background: #e6bd63;
-  border-radius: 8px;
-  height: 42px;
+  border-radius: 50%;
+  height: 46px;
   object-fit: contain;
-  padding: 5px;
-  width: 42px;
+  width: 46px;
 }
 
 .brand span { display: flex; flex-direction: column; gap: 3px; }
@@ -108,7 +106,7 @@
 .starGrid { display: grid; gap: 12px; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 15px; }
 .starField textarea { min-height: 82px; }
 .printBrand { align-items: center; display: none; gap: 11px; margin-bottom: 18px; }
-.printBrand img { background: #e6bd63; border-radius: 7px; height: 38px; object-fit: contain; padding: 4px; width: 38px; }
+.printBrand img { border-radius: 50%; height: 44px; object-fit: contain; width: 44px; }
 .printBrand strong, .printBrand span { display: block; }
 .printBrand strong { color: var(--navy); font: 600 14px "Space Grotesk", sans-serif; }
 .printBrand span { color: var(--muted); font-size: 10px; }
@@ -154,6 +152,9 @@
   .card { padding: 19px; }
   .prompt { padding: 16px; }
 }
+
+.footerBrand { align-items: center; color: inherit; display: inline-flex; gap: 10px; text-decoration: none; }
+.footerBrand img { border-radius: 50%; height: 40px; width: 40px; }
 
 @media print {
   .header, .noPrint, .cta, .footer { display: none !important; }

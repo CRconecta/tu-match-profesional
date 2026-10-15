@@ -30,7 +30,7 @@ export function CommercialHeader({ current }: { current?: string }) {
     <header className={styles.header}>
       <div className={`shell ${styles.headerInner}`}>
         <a className={styles.brand} href="/" aria-label="Tu Match Profesional — Una iniciativa de CR Gestión con Resultados">
-          <img src="/branding/logo-consultora.png" alt="CR Gestión con Resultados" />
+          <img src="/branding/logo-cr-gestion.png" alt="CR Gestión con Resultados" />
           <span><strong>Tu Match Profesional</strong><small>Una iniciativa de CR Gestión con Resultados</small></span>
         </a>
         <nav className={styles.navigation} aria-label="Navegación principal">
@@ -74,7 +74,10 @@ export function CommercialFooter() {
   return (
     <footer className={styles.footer}>
       <div className={`shell ${styles.footerInner}`}>
-        <span>Tu Match Profesional — Una iniciativa de CR Gestión con Resultados</span>
+        <a className={styles.footerBrand} href="https://crgestion.netlify.app" target="_blank" rel="noopener noreferrer" aria-label="CR Gestión con Resultados, sitio institucional">
+          <img src="/branding/logo-cr-gestion.png" alt="CR Gestión con Resultados" />
+          <span>Tu Match Profesional — Una iniciativa de CR Gestión con Resultados</span>
+        </a>
         <a href="/">Volver a Tu Match Profesional</a>
       </div>
     </footer>

@@ -167,7 +167,7 @@ body { background:#f7fafb; }
 .topbar { background:#092b40; }
 .topbar-inner { height:78px; justify-content:space-between; }
 .brand { align-items:center; color:#fff; display:flex; gap:11px; text-decoration:none; }
-.brand img, .footer-brand img { background:#e6bd63; border-radius:9px; height:43px; object-fit:contain; padding:5px; width:43px; }
+.brand img, .footer-brand img { border-radius:50%; height:46px; object-fit:contain; width:46px; }
 .brand span { display:flex; flex-direction:column; gap:2px; }
 .brand strong { font-size:15px; }
 .brand small { color:#b4c8d0; font-size:11px; }
