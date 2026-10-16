@@ -79,6 +79,7 @@ export function CommercialFooter() {
           <span>Tu Match Profesional — Una iniciativa de CR Gestión con Resultados</span>
         </a>
         <a href="/">Volver a Tu Match Profesional</a>
+        <small>© 2026 CR Gestión de Personas &amp; Operaciones. Todos los derechos reservados. <a href="/terminos">Términos de uso</a></small>
       </div>
     </footer>
   );
