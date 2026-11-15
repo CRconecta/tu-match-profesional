@@ -15,4 +15,4 @@ npm run build
 git add app lib
 git commit -m "Agrega /entrevista: generador de entrevistas por competencias"
 git push
-echo "Listo. Cuando Netlify termine el deploy, probá: https://tumatchprofesional.netlify.app/entrevista"
+echo "Listo. Cuando Netlify termine el deploy, probá: https://tumatch.crgestion.com.ar/entrevista"

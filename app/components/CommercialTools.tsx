@@ -74,7 +74,7 @@ export function CommercialFooter() {
   return (
     <footer className={styles.footer}>
       <div className={`shell ${styles.footerInner}`}>
-        <a className={styles.footerBrand} href="https://crgestion.netlify.app" target="_blank" rel="noopener noreferrer" aria-label="CR Gestión con Resultados, sitio institucional">
+        <a className={styles.footerBrand} href="https://crgestion.com.ar" target="_blank" rel="noopener noreferrer" aria-label="CR Gestión con Resultados, sitio institucional">
           <img src="/branding/logo-cr-gestion.png" alt="CR Gestión con Resultados" />
           <span>Tu Match Profesional — Una iniciativa de CR Gestión con Resultados</span>
         </a>
